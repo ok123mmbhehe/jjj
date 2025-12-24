@@ -1441,7 +1441,8 @@ section h2:hover,
 }
 
 .footer-section a:hover {
-    color: var(--primary-color);
+    color: #5ee7ff;
+    text-shadow: 0 0 10px rgba(94, 231, 255, 0.8), 0 0 18px rgba(94, 231, 255, 0.5);
 }
 
 .footer-social {
