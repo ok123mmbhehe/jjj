@@ -92,7 +92,8 @@ function initCart() {
         const removeBtn = e.target.closest('.cart-remove');
         if (!minus && !plus && !removeBtn) return;
 
-        const name = (minus || plus || removeBtn).dataset.name;
+        const name = (minus || plus || removeBtn)?.dataset.name
+            || e.target.closest('.cart-qty-controls')?.dataset.name;
         const item = cartItems.find(i => i.name === name);
         if (!item) return;
 
@@ -328,7 +329,10 @@ function initHeroSlider() {
     images.forEach(src => {
         const slide = document.createElement('div');
         slide.className = 'hero-slide';
-        slide.style.backgroundImage = `url('${src}')`;
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Hero banner';
+        slide.appendChild(img);
         track.appendChild(slide);
     });
 
